@@ -28,7 +28,7 @@ void loop()
   if (BtSerial.available())
   {                                // 블루투스 송신 가능하다면
     Serial.write(BtSerial.read()); // 블루투스에서 읽어라. 읽은 정보를 시리얼에 출력
-    byte val = BtSerial.read();
+    char val = BtSerial.read();
     if (val == '1')
     {
       control.Motor(200, 1);         // 150의 속도로 자동차가 전진합니다.

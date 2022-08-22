@@ -7,9 +7,7 @@
             "compilerArgs": [],
             "intelliSenseMode": "windows-msvc-x64",
             "includePath": [
-                "${workspaceFolder}/**",
-                "C:\\Program Files(x86)\\Arduino\\hardware\\tools\\avr\\avr\\include",
-                "C:\\Program Files(x86)\\Arduino\\hardware\\arduino\\avr\\variants\\circuitplay32u4"
+                "${workspaceFolder}/**"
             ],
             "forcedInclude": [],
             "cStandard": "c17",
@@ -38,9 +36,10 @@
                 "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\variants\\standard",
                 "C:\\Users\\lenovo\\OneDrive\\문서\\Arduino\\libraries\\ControlMotor",
                 "C:\\Users\\lenovo\\OneDrive\\문서\\Arduino\\libraries\\ultrasonic",
-                "c:\\program files (x86)\\arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include",
-                "c:\\program files (x86)\\arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include-fixed",
-                "c:\\program files (x86)\\arduino\\hardware\\tools\\avr\\avr\\include"
+                "C:\\program files (x86)\\arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include",
+                "C:\\program files (x86)\\arduino\\hardware\\tools\\avr\\lib\\gcc\\avr\\7.3.0\\include-fixed",
+                "C:\\Program Files(x86)\\Arduino\\hardware\\tools\\avr\\avr\\include",
+                "C:\\Program Files(x86)\\Arduino\\hardware\\arduino\\avr\\variants\\circuitplay32u4"
             ],
             "forcedInclude": [
                 "C:\\Program Files (x86)\\Arduino\\hardware\\arduino\\avr\\cores\\arduino\\Arduino.h"

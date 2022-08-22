@@ -14,7 +14,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
 
-  Serial.println("hello");
+  Serial.println("작동되는지");
   BtSerial.begin(9600);
   
 }
@@ -23,10 +23,16 @@ void loop() {
   // put your main code here, to run repeatedly:
   if (BtSerial.available()) {       
     Serial.write(BtSerial.read());
+    Serial.println("BtSerial");
+  }
+  else{
+    Serial.println("No BtSerial");
   }
   if (Serial.available()) {         
     BtSerial.write(Serial.read());
+    Serial.println("Serial");
   }
-
-
+  else {
+    Serial.println("No Serial");
+  }
 }

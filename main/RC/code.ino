@@ -79,9 +79,9 @@ void loop()
     {
       control.Motor(0, 1);
     }
-    else{
-      control.Motor(0, 1);
-    }
+  }
+  else{
+    Serial.println("빡치네");
   }
   if (Serial.available())
   {

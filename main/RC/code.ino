@@ -11,7 +11,7 @@ int Tx = 12;                     //전송 보내는핀  (블루투스)
 int Rx = 13;                     //수신 받는핀    (블루투스)
 SoftwareSerial BtSerial(Tx, Rx); // BTSerial 객체를 만들과 초기화
 
-int mesurement_speed = 3; //센서 측정 속도를 조정합니다.
+int mesurement_speed = 5; //센서 측정 속도를 조정합니다.
 long int distance = 0;    //거리를 저장할 변수를 선언합니다.
 int random_value = 0;     //랜덤값을 저장합니다.
 char val = '0';
@@ -37,7 +37,7 @@ void loop()
   }
   if (val == '1')
   {
-    control.Motor(250, 1);         // 150의 속도로 자동차가 전진합니다.
+    control.Motor(300, 1);         // 150의 속도로 자동차가 전진합니다.
     distance = sensor.Ranging(CM); //거리를 측정하고 distance 변수에 저장합니다.
     MotorCode();
   }
@@ -76,12 +76,12 @@ void MotorCode()
 
 void MotorRight()
 {
-  control.Motor(150, 100);      //자동차가 0.4초동안 오른쪽으로 회전합니다.
+  control.Motor(130, 100);      //자동차가 0.4초동안 오른쪽으로 회전합니다.
   delay(200);
 }
 
 void MotorLeft()
 {
-  control.Motor(150, -100);     //자동차가 0.4초동안 왼쪽으로 회전합니다.
+  control.Motor(130, -100);     //자동차가 0.4초동안 왼쪽으로 회전합니다.
   delay(200);
 }

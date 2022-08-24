@@ -79,6 +79,9 @@ void loop()
     {
       control.Motor(0, 1);
     }
+    else{
+      Serial.print("몰루");
+    }
   }
   if (Serial.available())
   {

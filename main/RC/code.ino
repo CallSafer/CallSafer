@@ -37,6 +37,8 @@ void loop()
   }
   if (val == '1')
   {
+    control.Motor(300, 1);         // 150의 속도로 자동차가 전진합니다.
+    distance = sensor.Ranging(CM); //거리를 측정하고 distance 변수에 저장합니다.
     MotorCode();
   }
   else if (val == '0')
@@ -47,9 +49,6 @@ void loop()
 
 void MotorCode()
 {
-  control.Motor(300, 1);         // 150의 속도로 자동차가 전진합니다.
-  distance = sensor.Ranging(CM); //거리를 측정하고 distance 변수에 저장합니다.
-
   delay(mesurement_speed); //센서측정 속도를 제어하기 위한 딜레이.
 
   //다음은 장애물이 없는 경우에 해당합니다.
@@ -60,7 +59,7 @@ void MotorCode()
 
   random_value = random(2); //자동차가 한쪽 방향으로만 회전하는 것을 막기 위해 랜덤값을 만듭니다.
 
-  while (distance < 50)
+  while (distance < 80)
   { //장애물과의 거리가 30cm이하일 경우에 적용됩니다.
 
     delay(mesurement_speed); //센서측정 속도를 제어하기 위한 딜레이.

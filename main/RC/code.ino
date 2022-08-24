@@ -29,7 +29,12 @@ void loop()
   {                                // 블루투스 송신 가능하다면
     Serial.write(BtSerial.read()); // 블루투스에서 읽어라. 읽은 정보를 시리얼에 출력
     char val = BtSerial.read();
-    if (val == '1')
+  }
+  if (Serial.available())
+  {
+    BtSerial.write(Serial.read());
+  }
+  if (val == '1')
     {
       control.Motor(200, 1);         // 150의 속도로 자동차가 전진합니다.
       distance = sensor.Ranging(CM); //거리를 측정하고 distance 변수에 저장합니다.
@@ -79,12 +84,4 @@ void loop()
     {
       control.Motor(0, 1);
     }
-  }
-  else{
-    Serial.println("빡치네");
-  }
-  if (Serial.available())
-  {
-    BtSerial.write(Serial.read());
-  }
 } // 블루투스 센서

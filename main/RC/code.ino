@@ -14,6 +14,7 @@ SoftwareSerial BtSerial(Tx, Rx); // BTSerial 객체를 만들과 초기화
 int mesurement_speed = 3; //센서 측정 속도를 조정합니다.
 long int distance = 0;    //거리를 저장할 변수를 선언합니다.
 int random_value = 0;     //랜덤값을 저장합니다.
+char val = '0';
 
 void setup()
 {
@@ -24,10 +25,10 @@ void setup()
 
 void loop()
 {
-  char val = BtSerial.read();
   // put your main code here, to run repeatedly:
   if (BtSerial.available())
-  {                                // 블루투스 송신 가능하다면
+  {
+    val = BtSerial.read();
     Serial.write(BtSerial.read()); // 블루투스에서 읽어라. 읽은 정보를 시리얼에 출력
   }
   if (Serial.available())

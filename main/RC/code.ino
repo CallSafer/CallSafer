@@ -30,12 +30,12 @@ void loop()
   {
     val = BtSerial.read();
     Serial.write(BtSerial.read()); // 블루투스에서 읽어라. 읽은 정보를 시리얼에 출력
-    print("BTconnect")
+    Serial.println("BTconnect")
   }
   if (Serial.available())
   {
     BtSerial.write(Serial.read());
-    print("Serialconnect")
+    Serial.println("Serialconnect")
   }
   if (val == '1')
   {

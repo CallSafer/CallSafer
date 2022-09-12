@@ -20,7 +20,7 @@ void setup()
 {
   Serial.begin(9600);    //시리얼포트를 초기화합니다.
   BtSerial.begin(9600);  // 블루투스센서 초기화.
-  Serial.println("HI!"); // 연결 시 문구
+  Serial.println("Start"); // 연결 시 문구
 }
 
 void loop()
@@ -30,10 +30,12 @@ void loop()
   {
     val = BtSerial.read();
     Serial.write(BtSerial.read()); // 블루투스에서 읽어라. 읽은 정보를 시리얼에 출력
+    print("BTconnect")
   }
   if (Serial.available())
   {
     BtSerial.write(Serial.read());
+    print("Serialconnect")
   }
   if (val == '1')
   {

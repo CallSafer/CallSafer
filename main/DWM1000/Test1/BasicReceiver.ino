@@ -81,7 +81,6 @@ void handleError() {
 }
 
 void receiver() {
-  Serial.print("Getting packet ... #");
   DW1000.newReceive();
   DW1000.setDefaults();
   // so we don't need to restart the receiver manually

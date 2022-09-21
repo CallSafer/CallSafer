@@ -89,6 +89,7 @@ void receiver() {
 }
 
 void loop() {
+    Serial.print("error?");
   // enter on confirmation of ISR status change (successfully received)
   if (received) {
     numReceived++;

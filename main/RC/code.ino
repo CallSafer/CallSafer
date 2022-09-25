@@ -26,15 +26,11 @@ void setup()
 void loop() 
 { 
   // put your main code here, to run repeatedly: 
-  soft = BtSerial.read();
-  if (soft)
+  if (BtSerial.available())
   { 
     val = BtSerial.read(); 
     Serial.write(BtSerial.read()); // 블루투스에서 읽어라. 읽은 정보를 시리얼에 출력 
-  }
-  else {
-    delay(500);
-  }
+  } 
   if (Serial.available()) 
   { 
     BtSerial.write(Serial.read()); 

@@ -6,8 +6,8 @@ void loop(){
   if(Serial.available()){
    char c = (char)Serial.read();
     if(c == '1') {
-      Serial.print("YES")
+      Serial.print("YES");
     } else {
-      Serial.print("NO")
+      Serial.print("NO");
     }
   }  

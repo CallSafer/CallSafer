@@ -60,7 +60,6 @@ void MotorCode()
     delay(mesurement_speed); //센서측정 속도를 제어하기 위한 딜레이. 
                              // control.Motor(0,1);//모터를 정지시킵니다. 
     distance = sensor.Ranging(CM); 
-    delay(1000); 
  
     if (random_value == 0) // 랜덤값이 0인경우에 해당됩니다. 
     { 

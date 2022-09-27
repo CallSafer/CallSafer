@@ -54,7 +54,7 @@ void MotorCode()
   //다음은 장애물이 없는 경우에 해당합니다. 
   random_value = random(2); //자동차가 한쪽 방향으로만 회전하는 것을 막기 위해 랜덤값을 만듭니다. 
  
-  while (distance < 80) 
+  while (distance < 50) 
   { //장애물과의 거리가 30cm이하일 경우에 적용됩니다. 
  
     delay(mesurement_speed); //센서측정 속도를 제어하기 위한 딜레이. 

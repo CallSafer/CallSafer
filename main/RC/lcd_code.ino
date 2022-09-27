@@ -1,40 +1,31 @@
+#include <Ultrasonic.h>         //HC-SR04 초음파센서 라이브러리를 사용합니다. 
+Ultrasonic sensor(9, 8, 30000); // (Trig핀, Echo핀, 최대거리 단위는 us) 즉 30000us = 약 5미터 
+
 #include <LiquidCrystal.h>
-#define TRIG 8
-#define ECHO 9
+LiquidCrystal_I2C lcd(0x3F, 16, 2);
 
-LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
-// 라이브러리 예에서는 숫자가 내림차순으로 되어 있기에 같은순으로 구성함
-// 12=Rs(레지스터 설정), 11=E(쓰기모드 활성화), 10=V0(글자대비값)=GND, 5=D4, 4=D6, 3=D7, 2=D8
-// LCD기판에서는 우측 방향이 우노에서는 감소하는 방향이다.
+void setup()
+{
+  lcd.begin();
+  lcd.backlight();
 
-void setup(){
-pinMode(TRIG, OUTPUT);
-pinMode(ECHO, INPUT);
-lcd.begin(16,2);
+  pinMode(trigPin, OUTPUT); // 센서 Trig 핀
+  pinMode(echoPin, INPUT);  // 센서 Echo 핀
 }
-// TRIG가 신호를 발사, ECHO는 반환된 신호를 받는다
-// lcd.begin(세로,가로);
 
-void loop(){
-digitalWrite(TRIG, LOW);
-delayMicroseconds(2);
+void loop()
+{
+  digitalWrite(trigPin, HIGH);  // 센서에 Trig 신호 입력
+  delayMicroseconds(10);        // 10us 정도 유지
+  digitalWrite(trigPin, LOW);   // Trig 신호 off
 
-digitalWrite(TRIG, HIGH);
-delayMicroseconds(10);
+  long duration = pulseIn(echoPin, HIGH);    // Echo pin: HIGH->Low 간격을 측정
+  long distance = duration / 29 / 2;         // 거리(cm)로 변환
 
-digitalWrite(TRIG, LOW);
-// delay를 주어서 신호를 처리할 충분한 시간을 준다
+  char buf[20];
+  snprintf(buf, sizeof(buf), "Distance %4d cm", distance);
+  lcd.setCursor(0, 0);
+  lcd.println(buf);
 
-long distance = pulseIn(ECHO, HIGH)/58.2;
-// 초음파 센서의 필수적인 함수 pulseIn(확인할 핀, 목표 상태값)이다.
-// 58.2로 나누면 cm가 된다
-
-lcd.clear();
-// LCD 화면에 나오기 전에 전체를 백지장으로 만든 다음에 이후에 그리기
-lcd.setCursor(0,0);
-// PRINT되는 문자열의 커서위치
-lcd.print(distance);
-lcd.print("cm");
-delay(200);
-// 글자가 유지되는 시간을 0.2초로 부여한다.
+  delay(200);
 }
